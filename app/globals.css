@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.625rem;
+    --chart-1: 221 83% 53%;
+    --chart-2: 142 76% 36%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 262 83% 58%;
+    --sidebar: 210 40% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-accent: 221 83% 53%;
+    --sidebar-accent-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --card: 224 71% 6%;
+    --card-foreground: 213 31% 91%;
+    --popover: 224 71% 6%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 222 47% 16%;
+    --secondary-foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 222 47% 16%;
+    --accent-foreground: 213 31% 91%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 71% 30%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 40%;
+    --warning-foreground: 213 31% 91%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 217 91% 60%;
+    --chart-1: 217 91% 60%;
+    --chart-2: 142 71% 30%;
+    --chart-3: 38 92% 40%;
+    --chart-4: 0 63% 31%;
+    --chart-5: 262 83% 58%;
+    --sidebar: 224 71% 6%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-border: 216 34% 17%;
+    --sidebar-accent: 217 91% 60%;
+    --sidebar-accent-foreground: 222 47% 11%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  /* Desktop sidebar width. Compact, icon-only sidebar at a fixed width; both the
+     sidebar and the main content padding read this variable so they stay in sync. */
+  :root {
+    --sidebar-w: 5rem;
+  }
+  /* When the sidebar is pinned open, widen the layout variable so the page
+     content shifts to make room (hover-expand stays an overlay and does not). */
+  html.sidebar-pinned {
+    --sidebar-w: 16rem;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+  }
+}
+
+/* Sticky-note colours. Bright pastels (dark text) in light mode; muted dark
+   variants (light text) in dark mode, so colored notes don't glare at night.
+   The .note-* class sets both background and text colour. */
+.note-white  { background: #ffffff; color: #1f2937; }
+.note-yellow { background: #fde68a; color: #1f2937; }
+.note-green  { background: #bbf7d0; color: #1f2937; }
+.note-pink   { background: #fbcfe8; color: #1f2937; }
+.note-purple { background: #e9d5ff; color: #1f2937; }
+.note-blue   { background: #bfdbfe; color: #1f2937; }
+.note-orange { background: #fed7aa; color: #1f2937; }
+.note-gray   { background: #e5e7eb; color: #1f2937; }
+.dark .note-white  { background: #e5e7eb; color: #1f2937; }
+.dark .note-yellow { background: #4a3f1a; color: #f3f4f6; }
+.dark .note-green  { background: #1d3a2a; color: #f3f4f6; }
+.dark .note-pink   { background: #4a2436; color: #f3f4f6; }
+.dark .note-purple { background: #352a4d; color: #f3f4f6; }
+.dark .note-blue   { background: #1e3450; color: #f3f4f6; }
+.dark .note-orange { background: #4a3320; color: #f3f4f6; }
+.dark .note-gray   { background: #374151; color: #f3f4f6; }
